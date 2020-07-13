@@ -59,8 +59,7 @@ def x86_code(is_encoder, buffer, size):
                     break
 
                 i = MASK_TO_BIT_NUMBER[prev_mask >> 1]
-                b = dest >> (24 - i*8)
-                assert 0 <= b <= 0xFF
+                b = 0xFF & (dest >> (24 - i*8))
 
                 if not Test86MSByte(b):
                     break
